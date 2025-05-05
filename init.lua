@@ -93,13 +93,12 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
-vim.opt.shell = 'pwsh.exe'
-vim.opt.shellxquote = ''
-
-vim.opt.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command'
+vim.opt.shell = '/bin/bash' -- Set to Bash explicitly
+vim.opt.shellcmdflag = '-c' -- Correct flag for executing commands
 vim.opt.shellquote = ''
-vim.opt.shellpipe = '| Out-File -Encoding UTF8 %s'
-vim.opt.shellredir = '| Out-File -Encoding UTF8 %s'
+vim.opt.shellredir = '>%s 2>&1'
+vim.opt.shellpipe = '2>&1 | tee'
+vim.opt.shellxquote = ''
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
